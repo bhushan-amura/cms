@@ -1,5 +1,5 @@
 class DemoController < ApplicationController
-  layout false
+  layout "admin"
   def index
     # render 'controller/action'
   end
