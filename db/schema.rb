@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160906061122) do
   add_index "section_edits", ["admin_user_id", "section_id"], name: "index_section_edits_on_admin_user_id_and_section_id", using: :btree
 
   create_table "sections", force: :cascade do |t|
-    t.integer  "pages_id",     limit: 4
+    t.integer  "page_id",      limit: 4
     t.string   "name",         limit: 255
     t.integer  "position",     limit: 4
     t.boolean  "visible"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20160906061122) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "sections", ["pages_id"], name: "index_sections_on_pages_id", using: :btree
+  add_index "sections", ["page_id"], name: "index_sections_on_page_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",       limit: 255

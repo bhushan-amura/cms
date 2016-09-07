@@ -1,5 +1,5 @@
 class CreateSections < ActiveRecord::Migration
-  def change
+  def up
     create_table :sections do |t|
       t.references :page
       t.string :name
@@ -10,6 +10,9 @@ class CreateSections < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index(:sections,"pages_id")
+    add_index(:sections,"page_id")
+  end
+  def down
+    drop_table :sections
   end
 end
