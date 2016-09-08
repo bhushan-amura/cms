@@ -7,5 +7,14 @@ class ApplicationController < ActionController::Base
   # To disable CSRF protection
   # skip_before_action :veify_authenticity_token
   # protect_from_forgery :except => [:import, :export]
-   
+  private
+    def confirm_logged_in
+      unless session[:user_id]
+        flash[:notice] = "Please Login"
+        redirect_to(:controller => 'access', :action => 'login')
+        return false
+      else
+        return true
+      end
+    end
 end
