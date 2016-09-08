@@ -1,2 +1,9 @@
 <h1>Demo#index</h1>
 <%= link_to 'hello', action: :hello, id: 5, page:20%>
+
+<% name = "Kevin" %>
+<% name = "Sorry!'); alert('I hacked you!" %>
+
+<%= link_to('Roar', '#', :onclick => "jsRoar('#{j(name)}'); return true;") %>
+
+<%= javascript_tag("jsRoar('#{j(name)}');") %>
