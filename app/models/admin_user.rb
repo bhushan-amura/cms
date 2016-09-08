@@ -3,7 +3,7 @@ class AdminUser < ActiveRecord::Base
   # To configure a different table name:
   # self.table_name = "admin_users"
 
-  has_secure_password 
+  has_secure_password
 
   has_and_belongs_to_many :pages
   has_many :section_edits
@@ -35,10 +35,16 @@ class AdminUser < ActiveRecord::Base
                     :confirmation => true
   validate :username_is_allowed
 
+  scope :sorted, lambda { order("last_name ASC, first_name ASC") }
+
   def username_is_allowed
     if FORBIDDEN_UNAMES.include?(username)
       errors.add(:username," username not allowed.")
     end
+  end
+
+  def name
+    first_name + " " + last_name
   end
 
 end
