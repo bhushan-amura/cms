@@ -1,5 +1,5 @@
 class DemoController < ApplicationController
-  layout "admin"
+  layout 'application'
   def index
     # render 'controller/action'
   end
@@ -8,5 +8,12 @@ class DemoController < ApplicationController
     @page = params[:page]
     # render 'demo/index'
     # redirect_to :controller => 'demo', :action => "index"
+  end
+
+  def text_helper
+
+  end
+  def escape_output
+    #code
   end
 end
