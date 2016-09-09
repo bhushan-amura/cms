@@ -6,7 +6,7 @@
   </head>
   <body>
     <div id="header">
-      <h1>Simple CMS Admin</h1>
+      <h1>CMS Admin</h1>
     </div>
     <div id="main">
       <% if !flash[:notice].blank? %>
@@ -19,7 +19,14 @@
       </div>
     </div>
     <div id="footer">
-      <p id="copyright">Bhushan Authankar</p>
+      <% if session[:user_name].nil? %>
+        <p id="copyright">Bhushan Authankar</p>
+      <% else %>
+        <p>
+          Logged in as : <%= session[:user_name] %>
+        </p>
+      <% end %>
+
     </div>
   </body>
 </html>
